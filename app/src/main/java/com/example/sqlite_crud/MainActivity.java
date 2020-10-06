@@ -34,8 +34,10 @@ public class MainActivity extends AppCompatActivity {
         button = findViewById(R.id.button);
         getdata = findViewById(R.id.getdata);
         mydb  = new Database(this);
-        //ViewAllData();
-        GetData();
+        //ViewAllData(); //For Buffer Data
+        GetData();  //For ListView Data
+
+
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,6 +48,8 @@ public class MainActivity extends AppCompatActivity {
                 if(isInserted = true){
 
                     Toast.makeText(MainActivity.this, "Data Inserted", Toast.LENGTH_SHORT).show();
+
+                    GetData();
                 }
 
                 else{
@@ -56,6 +60,8 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
+
+    //Show Data in List View
 
     public void GetData(){
 
@@ -75,6 +81,8 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+//    //Show Data in Buffer
+//
 //    public void ViewAllData(){
 //        getdata.setOnClickListener(new View.OnClickListener() {
 //
@@ -89,9 +97,11 @@ public class MainActivity extends AppCompatActivity {
 //
 //               StringBuffer buffer = new StringBuffer();
 //               while(cur.moveToNext()){
-//                   buffer.append("ID: "+ cur.getString(0)+"\n");
-//                   buffer.append("NAME: "+ cur.getString(1)+"\n");
-//                   buffer.append("AGE: "+ cur.getString(2)+"\n");
+//                   buffer.append("ID:   "+ cur.getString(0)+"\n");
+//                   buffer.append("NAME:   "+ cur.getString(1)+"\n");
+//                   buffer.append("AGE:   "+ cur.getString(2)+"\n\n");
+//
+//
 //               }
 //
 //               //show all data
@@ -100,6 +110,8 @@ public class MainActivity extends AppCompatActivity {
 //        });
 //    }
 //
+//
+//    //Show Message Buffer
 //
 //    public void ShowMessage(String title, String Message){
 //        AlertDialog.Builder builder = new AlertDialog.Builder(this);

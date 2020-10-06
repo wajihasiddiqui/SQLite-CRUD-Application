@@ -9,9 +9,13 @@ import androidx.annotation.Nullable;
 
 public class Database extends SQLiteOpenHelper {
 
+    //Create Database
+
     public Database(@Nullable Context context) {
         super(context, "dbtest", null, 1);
     }
+
+    //Create Table
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
@@ -25,12 +29,15 @@ public class Database extends SQLiteOpenHelper {
 
     }
 
+    //Insert Data
+
     public boolean insertData(String name, int age)
     {
         SQLiteDatabase db = this.getWritableDatabase();
 
         try{
-             String insert = "INSERT INTO tbluser (UID, UNAME, UAGE) VALUES (null, '"+name+"', '"+age+"')";
+            String insert ="INSERT INTO tbluser (UID, UNAME, UAGE) VALUES (null, '"+name+"', '"+age+"')";
+            db.execSQL(insert);
              return true;
         }
 
@@ -41,12 +48,40 @@ public class Database extends SQLiteOpenHelper {
     }
 
 
-    //generate the query to read from the database
+    //generate the query to read data from database
 
     public Cursor GetAllData(){
 
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cur = db.rawQuery("SELECT * FROM tbluser", null);
         return cur;
+    }
+
+    //Delete Database
+
+    public Boolean deleteDatabase(int id) {
+
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        try{
+            db.execSQL("SELECT * FROM tbluser WHERE UID ='"+id+"'");
+            return true;
+        }
+        catch(Exception ex){
+            return false;
+        }
+    }
+
+    public Boolean updateDatabase(int id,String name,int age) {
+
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        try{
+            db.execSQL("UPDATE tbluser set UNAME = '"+name+"', UAGE = '"+age+"', WHERE UID = '"+id+"'");
+            return true;
+        }
+        catch(Exception ex){
+            return false;
+        }
     }
 }
