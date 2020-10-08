@@ -17,8 +17,8 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     Database mydb;
-    EditText name, age;
-    Button button, getdata;
+    EditText name, age, id;
+    Button button, getdata,update,delete;
     ListView listView;
 
 
@@ -30,19 +30,27 @@ public class MainActivity extends AppCompatActivity {
 
         name = findViewById(R.id.name);
         age = findViewById(R.id.age);
+        id = findViewById(R.id.id);
+        delete = findViewById(R.id.delete);
         listView = findViewById(R.id.listview);
         button = findViewById(R.id.button);
+        update = findViewById(R.id.update);
         getdata = findViewById(R.id.getdata);
         mydb  = new Database(this);
         //ViewAllData(); //For Buffer Data
         GetData();  //For ListView Data
+        //UpdateData();
+        //deleteData();
 
 
+
+        //Insert Data
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
+                //Insert Data 
                 boolean isInserted = mydb.insertData(name.getText().toString(),Integer.parseInt(age.getText().toString()));
 
                 if(isInserted = true){
@@ -80,6 +88,56 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
+//    public void UpdateData(){
+//
+//        update.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                boolean isupdate = mydb.UpdateData(name.getText().toString(), age.getText().toString(),id.getText().toString());
+//                if(isupdate = true){
+//
+//                    Toast.makeText(MainActivity.this, "Data Updated", Toast.LENGTH_SHORT).show();
+//
+//
+//                }
+//
+//                else{
+//
+//                    Toast.makeText(MainActivity.this, "Data Not Updated ", Toast.LENGTH_SHORT).show();
+//                }
+//
+//
+//            }
+//
+//        });
+//
+//
+//    }
+
+
+//    public void deleteData(){
+//
+//        delete.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                boolean  deletedRaws = mydb.deleteData(Integer.parseInt(id.getText().toString()));
+//                if(deletedRaws = true){
+//
+//                    Toast.makeText(MainActivity.this, "Data delete", Toast.LENGTH_SHORT).show();
+//                }
+//                else{
+//
+//                    Toast.makeText(MainActivity.this, "Data Not delete ", Toast.LENGTH_SHORT).show();
+//                }
+//
+//
+//            }
+//
+//        });
+//
+//
+//    }
 
 //    //Show Data in Buffer
 //

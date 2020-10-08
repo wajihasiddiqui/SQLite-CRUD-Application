@@ -1,5 +1,6 @@
 package com.example.sqlite_crud;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -48,6 +49,25 @@ public class Database extends SQLiteOpenHelper {
     }
 
 
+    //Second Method of Insert
+
+//   public boolean InsertData(String name, int age,int id){
+//
+//        SQLiteDatabase db = this.getWritableDatabase();
+//        ContentValues contentValue = new ContentValues();
+//        contentValue.put("UNAME",name);
+//        contentValue.put("UAGE",age);
+//        long result = db.insert("tbluser",null,contentValue);
+//        if(result == -1){
+//            return false;
+//        }
+//        else{
+//            return true;
+//        }
+//
+//    }
+
+
     //generate the query to read data from database
 
     public Cursor GetAllData(){
@@ -84,4 +104,31 @@ public class Database extends SQLiteOpenHelper {
             return false;
         }
     }
+
+
+    //Second Method of Update
+//
+//    public boolean UpdateData(String name, String age, String id){
+//
+//        SQLiteDatabase db = this.getWritableDatabase();
+//        ContentValues contentValue = new ContentValues();
+//        contentValue.put("UNAME",name);
+//        contentValue.put("UAGE",age);
+//        contentValue.put("UID",id);
+//        db.update("tbluser", contentValue, "ID = ?", new String[]{String.valueOf(id)});
+//
+//            return true;
+//
+//
+//    }
+//
+//
+//    //Second Method of Delete
+//
+//    public boolean deleteData(int id){
+//
+//        SQLiteDatabase db = this.getWritableDatabase();
+//        db.delete("tbluser","ID = ?", new String[]{String.valueOf(id)});
+//        return true;
+//    }
 }
