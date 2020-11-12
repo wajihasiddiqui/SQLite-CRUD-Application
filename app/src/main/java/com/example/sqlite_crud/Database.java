@@ -79,31 +79,32 @@ public class Database extends SQLiteOpenHelper {
 
     //Delete Database
 
-    public Boolean deleteDatabase(int id) {
-
-        SQLiteDatabase db = this.getWritableDatabase();
-
-        try{
-            db.execSQL("SELECT * FROM tbluser WHERE UID ='"+id+"'");
-            return true;
-        }
-        catch(Exception ex){
-            return false;
-        }
-    }
-
-    public Boolean updateDatabase(int id,String name,int age) {
-
-        SQLiteDatabase db = this.getWritableDatabase();
-
-        try{
-            db.execSQL("UPDATE tbluser set UNAME = '"+name+"', UAGE = '"+age+"', WHERE UID = '"+id+"'");
-            return true;
-        }
-        catch(Exception ex){
-            return false;
-        }
-    }
+//    public Boolean deleteDatabase(int id) {
+//
+//        SQLiteDatabase db = this.getWritableDatabase();
+//
+//        try{
+//            db.execSQL("SELECT * FROM tbluser WHERE UID ='"+id+"'");
+//            return true;
+//        }
+//        catch(Exception ex){
+//            return false;
+//        }
+//    }
+//
+    //Update Database
+//    public Boolean updateDatabase(int id,String name,int age) {
+//
+//        SQLiteDatabase db = this.getWritableDatabase();
+//
+//        try{
+//            db.execSQL("UPDATE tbluser set UNAME = '"+name+"', UAGE = '"+age+"', WHERE UID = '"+id+"'");
+//            return true;
+//        }
+//        catch(Exception ex){
+//            return false;
+//        }
+//    }
 
 
     //Second Method of Update
