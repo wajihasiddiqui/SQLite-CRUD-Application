@@ -39,8 +39,8 @@ public class MainActivity extends AppCompatActivity {
         mydb  = new Database(this);
         //ViewAllData(); //For Buffer Data
         GetData();  //For ListView Data
-        //UpdateData();
-        //deleteData();
+        UpdateData();
+        deleteData();
 
 
 
@@ -89,55 +89,56 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-//    public void UpdateData(){
-//
-//        update.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                boolean isupdate = mydb.UpdateData(name.getText().toString(), age.getText().toString(),id.getText().toString());
-//                if(isupdate = true){
-//
-//                    Toast.makeText(MainActivity.this, "Data Updated", Toast.LENGTH_SHORT).show();
-//
-//
-//                }
-//
-//                else{
-//
-//                    Toast.makeText(MainActivity.this, "Data Not Updated ", Toast.LENGTH_SHORT).show();
-//                }
-//
-//
-//            }
-//
-//        });
-//
-//
-//    }
+    public void UpdateData(){
+
+        update.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                boolean isupdate = mydb.UpdateData(name.getText().toString(), age.getText().toString(),id.getText().toString());
+                if(isupdate = true){
+
+                    Toast.makeText(MainActivity.this, "Data Updated", Toast.LENGTH_SHORT).show();
+
+                    UpdateData();
+                }
+
+                else{
+
+                    Toast.makeText(MainActivity.this, "Data Not Updated ", Toast.LENGTH_SHORT).show();
+                }
 
 
-//    public void deleteData(){
-//
-//        delete.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                boolean  deletedRaws = mydb.deleteData(Integer.parseInt(id.getText().toString()));
-//                if(deletedRaws = true){
-//
-//                    Toast.makeText(MainActivity.this, "Data delete", Toast.LENGTH_SHORT).show();
-//                }
-//                else{
-//
-//                    Toast.makeText(MainActivity.this, "Data Not delete ", Toast.LENGTH_SHORT).show();
-//                }
-//
-//
-//            }
-//
-//        });
-//
-//
-//    }
+            }
+
+        });
+
+
+    }
+
+
+    public void deleteData(){
+
+        delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                boolean  deletedRaws = mydb.deleteData(Integer.parseInt(id.getText().toString()));
+                if(deletedRaws = true){
+
+                    Toast.makeText(MainActivity.this, "Data delete", Toast.LENGTH_SHORT).show();
+                    deleteData();
+                }
+                else{
+
+                    Toast.makeText(MainActivity.this, "Data Not delete ", Toast.LENGTH_SHORT).show();
+                }
+
+
+            }
+
+        });
+
+
+    }
 
 //    //Show Data in Buffer
 //
